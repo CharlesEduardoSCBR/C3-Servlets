@@ -26,8 +26,7 @@ public class BuscaEmpresa extends HttpServlet {
 		writer.println("<body>");
 		writer.println("Resultado da busca:<br/>");
 		
-		String filtro = req.getParameter("filtro");
-		Collection<Empresa> empresas = new EmpresaDAO().buscaPorSimilaridade(filtro);
+		Collection<Empresa> empresas = new EmpresaDAO().buscaPorSimilaridade("doce");
 		
 		writer.println("<ul>");
 		for(Empresa empresa : empresas){
