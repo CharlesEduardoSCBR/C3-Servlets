@@ -18,26 +18,13 @@ public class FiltroDeAuditoria implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
-		Cookie cookie = getUsuario(req);
+		Cookies cookie = new Cookies(req.getCookies());
 		String usuario = "<deslogado>";
-		
-		if(cookie != null)
+
+		if (cookie.getUsuarioLogado() != null)
 			usuario = cookie.getValue();
 
 		System.out.println("Usuario acessando a URI " + req.getRequestURI());
 		chain.doFilter(request, response);
-	}
-
-	private Cookie getUsuario(HttpServletRequest req) {
-		Cookie[] cookies = req.getCookies();
-
-		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("usuario.logado")) {
-				if (cookie.getName().equals("usuario.logado"))
-					;
-				return cookie;
-			}
-		}
-		return null;
 	}
 }
