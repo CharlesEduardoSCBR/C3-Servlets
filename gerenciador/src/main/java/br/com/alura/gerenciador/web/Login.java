@@ -33,6 +33,7 @@ public class Login extends HttpServlet {
 			Cookie cookie = new Cookie("usuario.logado", email);
 			resp.addCookie(cookie);
 			writer.println("<html><body>Usuário logado: " + email + "</body></html>");
+			
 		}
 	}
 
