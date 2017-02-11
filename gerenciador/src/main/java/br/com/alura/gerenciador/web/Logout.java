@@ -14,15 +14,18 @@ import javax.servlet.http.HttpServletResponse;
 public class Logout extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter writer = resp.getWriter();
-		Cookies ck = new Cookies(req.getCookies());	
-		Cookie c = ck.getUsuarioLogado();
-		
-		c.setMaxAge(0);
-		resp.addCookie(c);
+		Cookie cookie = new Cookies(req.getCookies()).getUsuarioLogado();
+
+		if (cookie != null) {
+			cookie.setMaxAge(0);
+			resp.addCookie(cookie);
+		}
+
+		resp.addCookie(cookie);
 		writer.println("<html><body>Logout com suscesso!</body></html>");
 	}
 }
