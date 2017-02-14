@@ -1,8 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <body>
 	<h1>Bem vindo ao nosso gerenciador de empresas!</h1>
 	<br />
-
+	
+	<c:if test="${usuarioLogado!=null}">
+		Você está logado como ${usuarioLogado.email}<br />
+	</c:if>
+	
 	<form action="novaEmpresa" method="post">
 		Nome: <input type="text" name="nome" /><br /> <input type="submit"
 			value="Enviar" />
