@@ -10,20 +10,23 @@
 		Você está logado como ${usuarioLogado.email}<br />
 	</c:if>
 	
-	<form action="novaEmpresa" method="post">
+	<form action="fazTudo" method="post">
+		<input type="hidden" name= "tarefa" value="novaEmpresa" />
 		Nome: <input type="text" name="nome" /><br /> <input type="submit"
 			value="Enviar" />
 	</form>
 
 	<br />
 
-	<form action="login" method="post">
+	<form action="fazTudo" method="post">
+		<input type="hidden" name= "tarefa" value="login" />
 		<label>Email:</label> <input type="text" name="email" /><br /> <label>Senha:</label>
 		<input type="password" name="senha" /><br /> <input type="submit"
 			value="Login" />
 	</form>
 
-	<form action="logout" method="post">
+	<form action="fazTudo" method="post">
+		<input type="hidden" name= "tarefa" value="logout" />
 		<input type="submit" value="Logout" />
 	</form>
 </body>
